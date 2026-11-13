@@ -18,6 +18,8 @@
 	</th:block>
 
 	<h2>勤怠管理</h2>
+	
+	
 
 	<!-- エラーメッセージ -->
 	<th:block th:if="${not #strings.isEmpty(error)}" id="error">
@@ -73,8 +75,14 @@
 		</div>
 	</div>
 
+	<th:block th:if="${notEnterCheck}">
+    	<script>
+        	alert('過去日の勤怠に未入力があります。');
+    	</script>
+	</th:block>
+
 	<script type="text/javascript" th:inline="javascript">
-		$(function() {
+		$(function() {			
 			$("#now").text('現在の時刻は　' + getClock() + '　です。');
 			setInterval(function() {
 				$("#now").text('現在の時刻は　' + getClock() + '　です。');
