@@ -1,6 +1,7 @@
 package jp.co.sss.lms.service;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -15,6 +16,7 @@ import jp.co.sss.lms.entity.TStudentAttendance;
 import jp.co.sss.lms.enums.AttendanceStatusEnum;
 import jp.co.sss.lms.form.AttendanceForm;
 import jp.co.sss.lms.form.DailyAttendanceForm;
+import jp.co.sss.lms.mapper.MLmsUserMapper;
 import jp.co.sss.lms.mapper.TStudentAttendanceMapper;
 import jp.co.sss.lms.util.AttendanceUtil;
 import jp.co.sss.lms.util.Constants;
@@ -32,6 +34,8 @@ import jp.co.sss.lms.util.TrainingTime;
 public class StudentAttendanceService {
 
 	@Autowired
+	private TrainingTime trainingTime;
+	@Autowired
 	private DateUtil dateUtil;
 	@Autowired
 	private AttendanceUtil attendanceUtil;
@@ -41,6 +45,8 @@ public class StudentAttendanceService {
 	private LoginUserUtil loginUserUtil;
 	@Autowired
 	private LoginUserDto loginUserDto;
+	@Autowired
+	private MLmsUserMapper mLmsUserMapper;
 	@Autowired
 	private TStudentAttendanceMapper tStudentAttendanceMapper;
 
@@ -333,5 +339,22 @@ public class StudentAttendanceService {
 		// 完了メッセージ
 		return messageUtil.getMessage(Constants.PROP_KEY_ATTENDANCE_UPDATE_NOTICE);
 	}
-
+	
+	/**
+	 * 過去日の勤怠未入力チェック
+	 * 
+	 * @return 過去日に未入力にの勤怠がある場合true
+	 */
+	public Boolean notEnterCheck() {
+		//日付フォーマットパターンを設定
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy/M/d");
+		
+		//本日の日付を取得
+		Date date = new Date();
+		
+		//未入力件数を取得
+		Integer count = tStudentAttendanceMapper.notEnterCount(loginUserDto.getLmsUserId(), Constants.DB_FLG_FALSE, date);
+		
+		//未入力がある場合trueを返す
+		return count > 0;	}
 }
