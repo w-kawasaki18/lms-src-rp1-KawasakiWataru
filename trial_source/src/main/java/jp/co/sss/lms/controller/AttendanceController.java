@@ -19,7 +19,7 @@ import jp.co.sss.lms.util.Constants;
 /**
  * 勤怠管理コントローラ
  * 
- * @author 東京ITスクール
+ * @author 川﨑 Task25
  */
 @Controller
 @RequestMapping("/attendance")
@@ -33,6 +33,7 @@ public class AttendanceController {
 	/**
 	 * 勤怠管理画面 初期表示
 	 * 
+	 * @author 川﨑 Task25
 	 * @param lmsUserId
 	 * @param courseId
 	 * @param model

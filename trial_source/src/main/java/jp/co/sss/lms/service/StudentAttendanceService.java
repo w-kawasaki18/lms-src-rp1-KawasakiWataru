@@ -26,7 +26,7 @@ import jp.co.sss.lms.util.TrainingTime;
 /**
  * 勤怠情報（受講生入力）サービス
  * 
- * @author 東京ITスクール
+ * @author 川﨑 Task25
  */
 @Service
 public class StudentAttendanceService {
@@ -337,6 +337,7 @@ public class StudentAttendanceService {
 	/**
 	 * 過去日の勤怠未入力チェック
 	 * 
+	 * @author 川﨑 Task25
 	 * @return 過去日に未入力にの勤怠がある場合true
 	 */
 	public Boolean notEnterCheck() {
