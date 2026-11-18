@@ -40,6 +40,14 @@ public class DailyAttendanceForm {
 	private String statusDispName;
 	/** LMSユーザーID */
 	private String lmsUserId;
+	/** 出勤時間 */
+	private Integer trainingStartTimeHour;
+	/** 出勤分 */
+	private Integer trainingStartTimeMinute;
+	/** 退勤時間 */
+	private Integer trainingEndTimeHour;
+	/** 退勤分 */
+	private Integer trainingEndTimeMinute;
 	/** ユーザー名 */
 	private String userName;
 	/** コース名 */
