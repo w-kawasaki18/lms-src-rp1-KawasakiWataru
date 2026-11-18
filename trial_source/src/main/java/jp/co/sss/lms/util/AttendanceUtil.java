@@ -131,6 +131,36 @@ public class AttendanceUtil {
 		}
 		return map;
 	}
+	
+	/**
+	 * 時間取得
+	 * 
+	 * @author 川﨑 Task26
+	 * @return 時間
+	 */
+	public LinkedHashMap<Integer, String> setHour() {
+		LinkedHashMap<Integer, String> map = new LinkedHashMap<>();
+		map.put(null, "");
+		for(int i = 0; i < 24; i++) {
+			map.put(i, String.valueOf(i));
+		}
+		return map;
+	}
+	
+	/**
+	 * 分取得
+	 *
+	 *@author 川﨑 Task26
+	 * @return 分
+	 */
+	public LinkedHashMap<Integer, String> setMinute() {
+	    LinkedHashMap<Integer, String> map = new LinkedHashMap<>();
+	    map.put(null, "");
+	    for (int i = 0; i < 60; i++) {
+	        map.put(i, String.valueOf(i));
+	    }
+	    return map;
+	}
 
 	/**
 	 * 研修日の判定
