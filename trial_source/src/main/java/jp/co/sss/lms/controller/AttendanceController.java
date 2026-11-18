@@ -14,10 +14,7 @@ import jp.co.sss.lms.dto.AttendanceManagementDto;
 import jp.co.sss.lms.dto.LoginUserDto;
 import jp.co.sss.lms.form.AttendanceForm;
 import jp.co.sss.lms.service.StudentAttendanceService;
-import jp.co.sss.lms.service.UserService;
-import jp.co.sss.lms.util.AttendanceUtil;
 import jp.co.sss.lms.util.Constants;
-import jp.co.sss.lms.util.LoginUserUtil;
 
 /**
  * 勤怠管理コントローラ
@@ -31,13 +28,7 @@ public class AttendanceController {
 	@Autowired
 	private StudentAttendanceService studentAttendanceService;
 	@Autowired
-	private AttendanceUtil attendanceUtil;
-	@Autowired
 	private LoginUserDto loginUserDto;
-	@Autowired
-	private LoginUserUtil loginUserUtil;
-	@Autowired
-	private UserService userService;
 
 	/**
 	 * 勤怠管理画面 初期表示
