@@ -19,7 +19,7 @@ import jp.co.sss.lms.util.Constants;
 /**
  * 勤怠管理コントローラ
  * 
- * @author 川﨑 Task25
+ * @author 東京ITスクール
  */
 @Controller
 @RequestMapping("/attendance")
@@ -32,8 +32,7 @@ public class AttendanceController {
 
 	/**
 	 * 勤怠管理画面 初期表示
-	 * 
-	 * @author 川﨑 Task25
+	 * @author 東京ITスクール
 	 * @param lmsUserId
 	 * @param courseId
 	 * @param model
@@ -48,7 +47,7 @@ public class AttendanceController {
 				.getAttendanceManagement(loginUserDto.getCourseId(), loginUserDto.getLmsUserId());
 		model.addAttribute("attendanceManagementDtoList", attendanceManagementDtoList);
 		
-		//過去日が未入力の場合に表示
+		//川﨑航 - Task25 過去日が未入力の場合に表示
 		Boolean notEnterCheck = studentAttendanceService.notEnterCheck();
 		model.addAttribute("notEnterCheck", notEnterCheck);
 

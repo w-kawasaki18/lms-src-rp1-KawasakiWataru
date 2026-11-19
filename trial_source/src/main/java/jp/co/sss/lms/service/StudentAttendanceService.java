@@ -26,7 +26,7 @@ import jp.co.sss.lms.util.TrainingTime;
 /**
  * 勤怠情報（受講生入力）サービス
  * 
- * @author 川﨑 Task25
+ * @author 東京ITスクール
  */
 @Service
 public class StudentAttendanceService {
@@ -218,7 +218,7 @@ public class StudentAttendanceService {
 		attendanceForm.setUserName(loginUserDto.getUserName());
 		attendanceForm.setLeaveFlg(loginUserDto.getLeaveFlg());
 		attendanceForm.setBlankTimes(attendanceUtil.setBlankTime());
-		//川﨑航 Task26 Mapを設定
+		//川﨑航 - Task26 Mapを設定
 		attendanceForm.setHourMap(attendanceUtil.setHour());
 		attendanceForm.setMinuteMap(attendanceUtil.setMinute());
 
@@ -238,7 +238,7 @@ public class StudentAttendanceService {
 			dailyAttendanceForm
 					.setTrainingDate(dateUtil.toString(attendanceManagementDto.getTrainingDate()));
 			
-			//川﨑航 Task26 出勤時間
+			//川﨑航 - Task26 出勤時間
 			dailyAttendanceForm
 			        .setTrainingStartTime(attendanceManagementDto.getTrainingStartTime());
 
@@ -250,7 +250,7 @@ public class StudentAttendanceService {
 			    dailyAttendanceForm.setTrainingStartTimeMinute(trainingStartTime.getMinute());
 			}
 
-			//川﨑航 Task26 退勤時間
+			//川﨑航 - Task26 退勤時間
 			dailyAttendanceForm
 			        .setTrainingEndTime(attendanceManagementDto.getTrainingEndTime());
 
@@ -285,7 +285,7 @@ public class StudentAttendanceService {
 	/**
 	 * 入力された出退勤の{時間}{分}をhh:mm形式に変換する処理
 	 * 
-	 * @author 川﨑 Task26
+	 * @author 川﨑 - Task26
 	 * @param attendanceForm
 	 */
 	public void formatConversion(AttendanceForm attendanceForm) {
@@ -390,8 +390,8 @@ public class StudentAttendanceService {
 	/**
 	 * 過去日の勤怠未入力チェック
 	 * 
-	 * @author 川﨑 Task25
-	 * @return 過去日に未入力にの勤怠がある場合true
+	 * @author 川﨑 - Task25
+	 * @return 過去日に未入力の勤怠がある場合true
 	 */
 	public Boolean notEnterCheck() {
 		

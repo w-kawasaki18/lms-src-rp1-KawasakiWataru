@@ -40,7 +40,7 @@
 		ORDER BY t2.date ASC
 	</select>
 	
-	<!-- 川﨑航 Task25 -->
+	<!-- 川﨑航 - Task25 未入力件数を取得するSQL -->
 	<select id="notEnterCount" resultType="java.lang.Integer">
     	SELECT
         	COUNT(*)
