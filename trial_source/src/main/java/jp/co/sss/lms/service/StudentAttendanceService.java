@@ -1,6 +1,7 @@
 package jp.co.sss.lms.service;
 
 import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -395,12 +396,25 @@ public class StudentAttendanceService {
 	 */
 	public Boolean notEnterCheck() {
 		
-		//本日の日付を取得
-		Date date = new Date();
+		//フォーマットパターンを設定
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy/M/d");
 		
-		//未入力件数を取得
-		Integer count = tStudentAttendanceMapper.notEnterCount(loginUserDto.getLmsUserId(), Constants.DB_FLG_FALSE, date);
-		
-		//未入力がある場合trueを返す
-		return count > 0;	}
-}
+	    // 現在日付を取得
+	    Date date = new Date();
+
+	    // 日付のフォーマットして時刻部分を切り捨てる
+	    try {
+	    	date = simpleDateFormat.parse(simpleDateFormat.format(date));
+	    } catch(ParseException e) {
+	    	throw new RuntimeException(e);
+	    }
+
+	    // 未入力件数を取得
+	    Integer count = tStudentAttendanceMapper.notEnterCount(
+	            loginUserDto.getLmsUserId(),
+	            Constants.DB_FLG_FALSE,
+	            date);
+
+	    // 未入力がある場合trueを返す
+	    return count > 0;
+	}}
