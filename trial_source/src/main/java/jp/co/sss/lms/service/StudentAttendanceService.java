@@ -296,12 +296,12 @@ public class StudentAttendanceService {
 			if(dailyAttendanceForm.getTrainingStartTimeHour() != null
 					&& dailyAttendanceForm.getTrainingStartTimeMinute() != null) {
 				dailyAttendanceForm.setTrainingStartTime(String.format("%02d:%02d",
-						dailyAttendanceForm.getTrainingEndTimeHour(),
-						dailyAttendanceForm.getTrainingEndTimeMinute()));
+						dailyAttendanceForm.getTrainingStartTimeHour(),
+						dailyAttendanceForm.getTrainingStartTimeMinute()));
 			}
 			
 			//退勤時間の変換
-			if(dailyAttendanceForm.getTrainingStartTimeHour() != null
+			if(dailyAttendanceForm.getTrainingEndTimeHour() != null
 					&& dailyAttendanceForm.getTrainingEndTimeMinute() !=null) {
 				dailyAttendanceForm.setTrainingEndTime(String.format("%02d:%02d",
 						dailyAttendanceForm.getTrainingEndTimeHour(),
