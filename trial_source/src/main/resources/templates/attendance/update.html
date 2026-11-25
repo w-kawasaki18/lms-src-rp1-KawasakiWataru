@@ -154,12 +154,20 @@
 					<th:block th:if="${session.loginUserDto.role != '0001'}">
 						<input type="submit" value="戻る" name="indexCompany" class="btn btn-default" />
 					</th:block>
-					<input type="submit" value="更新" name="complete" class="btn btn-info" />
+					<!-- 川﨑 - Task27 更新ボタン押下時、ダイアログ表示 id追加 -->
+					<input type="submit" value="更新" name="complete" class="btn btn-info" id="updateButton" />
 				</div>
-
 			</form>
 		</div>
 	</div>
-
+	
+	<!-- 川﨑 - Task27 更新ボタン押下時、ダイアログ表示 -->
+	<script>
+		document.getElementById("updateButton").addEventListener("click", function(event) {
+			if (!confirm("更新します。よろしいですか？")) {
+				event.preventDefault();
+			}
+		});
+	</script>
 </body>
 </html>
