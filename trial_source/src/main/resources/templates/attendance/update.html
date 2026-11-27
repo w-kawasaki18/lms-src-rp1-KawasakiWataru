@@ -37,6 +37,8 @@
 						<tr>
 							<th class="w140">日付</th>
 							<th class="w300">コース内容</th>
+							<!-- 川﨑 - Task28 定時ボタン -->
+							<th class="w70">定時</th>
 							<th class="w70">出勤</th>
 							<th class="w70">退勤</th>
 							<th class="w80">中抜け時間</th>
@@ -57,6 +59,11 @@
 								</th:block>
 								<td class="w140">[[${dailyAttendanceForm.dispTrainingDate}]]</td>
 								<td class="w300">[[${dailyAttendanceForm.sectionName}]]</td>
+								
+								<!-- 川﨑 - Task28 定時ボタン -->
+								<td class="w70">
+									<button type="button" class="btn btn-success default-button">定時</button>
+								</td>
 								
 								<!-- 川﨑航 - Task26 出勤時間 -->
 								<td class="w70">
@@ -160,6 +167,20 @@
 			</form>
 		</div>
 	</div>
+	
+	<!-- 川﨑 - Task28 定時ボタン押下時、出退勤時間を自動設定 -->
+	<script>
+		document.querySelectorAll(".default-button").forEach(function(button) {
+			button.addEventListener("click", function() {
+				const row = this.closest("tr");
+				
+				row.querySelector('select[name$="trainingStartTimeHour"]').value = "9";
+				row.querySelector('select[name$="trainingStartTimeMinute"]').value = "0";
+				row.querySelector('select[name$="trainingEndTimeHour"]').value = "18";
+				row.querySelector('select[name$="trainingEndTimeMinute"]').value = "0";
+			})
+		})
+	</script>
 	
 	<!-- 川﨑 - Task27 更新ボタン押下時、ダイアログ表示 -->
 	<script>
